@@ -108,9 +108,33 @@ const Dashboard = () => {
     ]
   };
 
+  const totalIncome = income.reduce((sum, i) => sum + i.amount, 0);
+  const totalExpense = expenses.reduce((sum, e) => sum + e.amount, 0);
+  const netCashFlow = totalIncome - totalExpense;
+  const dtiRatio = ((totalExpense / totalIncome)*100).toFixed(2);
+
   return (
     <div className="min-h-screen bg-gray-100 py-10 px-6">
       <h1 className="text-3xl font-bold text-center text-indigo-700 mb-8">Personal Finance Dashboard</h1>
+
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+        <div className="bg-white shodow rounded-xl p-4">
+          <h2 className="text-sm font-medium text-gray-500">Total Income</h2>
+          <p id="totalIncome" className="text-xl font-bold text-green-600">{`$${totalIncome}` ?? $0}</p>
+        </div>
+        <div className="bg-white shodow rounded-xl p-4">
+          <h2 className="text-sm font-medium text-gray-500">Total Expense</h2>
+          <p id="totalIncome" className="text-xl font-bold text-red-600">{`$${totalExpense}` ?? $0}</p>
+        </div>
+        <div className="bg-white shodow rounded-xl p-4">
+          <h2 className="text-sm font-medium text-gray-500">Net Cash Flow</h2>
+          <p id="totalIncome" className="text-xl font-bold">{`$${netCashFlow}` ?? $0}</p>
+        </div>
+        <div className="bg-white shodow rounded-xl p-4">
+          <h2 className="text-sm font-medium text-gray-500">Debt-to-income Ratio</h2>
+          <p id="totalIncome" className="text-xl font-bold">{`${dtiRatio}%` ?? "0%"}</p>
+        </div>
+      </div>
 
       {/* Charts */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -132,10 +156,6 @@ const Dashboard = () => {
         </div>
       </div>
 
-      {/* Income Table */}
-      
-
-      {/* Expense Table */}
      
     </div>
   );
