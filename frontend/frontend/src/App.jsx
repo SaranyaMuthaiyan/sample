@@ -5,6 +5,7 @@ import Register from './components/Register';
 import Dashboard from './components/Dashboard';
 import Income from './components/Income';
 import Expense from './components/Expense';
+import About from './components/About';
 import './App.css'
 import ProtectedRoute from './ProtectedRoute.jsx';
 import { useAuth } from './context/AuthContext.jsx';
@@ -37,6 +38,9 @@ function App() {
                 <li>
                   <Link to="/income" class="block py-2 px-3 text-white rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-700 md:p-0 md:dark:hover:text-gray-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Incomes</Link>
                 </li>
+                <li>
+                  <Link to="/About" class="block py-2 px-3 text-white rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-700 md:p-0 md:dark:hover:text-gray-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</Link>
+                </li>
               </ul>
             </div>
           </>
@@ -51,6 +55,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/expenses" element={<Expense />} />
           <Route path="/income" element={<Income />} />
+          <Route path="/About" element={<About/>}/>
         </Route>
 
       </Routes>
